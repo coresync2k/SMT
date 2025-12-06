@@ -74,6 +74,18 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="SOVUpgradeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="SOVUpgradeWindow.xaml.cs">
+      <DependentUpon>SOVUpgradeWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="External\AtkinsonHyperlegible\AtkinsonHyperlegible-Bold.ttf" />
     <Resource Include="External\AtkinsonHyperlegible\AtkinsonHyperlegible-BoldItalic.ttf" />
     <Resource Include="External\AtkinsonHyperlegible\AtkinsonHyperlegible-Italic.ttf" />
