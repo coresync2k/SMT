@@ -109,13 +109,13 @@ namespace SMT.EVEData
             }
 
             ZKBData.ZkbData z = ZKBData.ZkbData.FromJson(strContent);
-            if(z != null && z.Package != null)
+            if(z != null && z.Package != null && z.Package.Killmail != null && z.Package.Killmail.Victim != null)
             {
                 ZKBDataSimple zs = new ZKBDataSimple();
                 zs.KillID = long.Parse(z.Package.KillId.ToString());
-                zs.VictimAllianceID = int.Parse(z.Package.Killmail.Victim.AllianceId.ToString());
-                zs.VictimCharacterID = int.Parse(z.Package.Killmail.Victim.CharacterId.ToString());
-                zs.VictimCorpID = int.Parse(z.Package.Killmail.Victim.CharacterId.ToString());
+                zs.VictimAllianceID = z.Package.Killmail.Victim.AllianceId != null ? int.Parse(z.Package.Killmail.Victim.AllianceId.ToString()) : 0;
+                zs.VictimCharacterID = z.Package.Killmail.Victim.CharacterId != null ? int.Parse(z.Package.Killmail.Victim.CharacterId.ToString()) : 0;
+                zs.VictimCorpID = z.Package.Killmail.Victim.CorporationId != null ? int.Parse(z.Package.Killmail.Victim.CorporationId.ToString()) : 0;
                 zs.SystemName = EveManager.Instance.GetEveSystemNameFromID(z.Package.Killmail.SolarSystemId);
                 if(zs.SystemName == string.Empty)
                 {
